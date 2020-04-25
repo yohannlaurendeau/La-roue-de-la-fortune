@@ -1,5 +1,6 @@
 #include "enigmeR.h"
 #include "player.h"
+#include "string"
 
 int const nbDeTextes(3);
 string texte[nbDeTextes];
