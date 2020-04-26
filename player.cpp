@@ -1,6 +1,8 @@
 #include <string>
 #include "player.h"
 
+using namespace std;
+
 void Player::addGains(int gain){
 	gains += gain;
 }

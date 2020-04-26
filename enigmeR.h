@@ -1,7 +1,7 @@
 class enigmeR {
     private:
-        string enigme;
+        std::string enigme;
     public:
-        void getEnigme(){};
+        void getEnigme();
         
-}
+};

@@ -1,13 +1,13 @@
 class Player{
 public:
-	Player(int gains, string nickname,int idPlayer,string deviner);
+	Player(int gains, std::string nickname,int idPlayer,std::string deviner);
 	int getGains() const;
 	void addGains(int gains);
-	void getDeviner() const;
+	std::string getDeviner() const;
 
 private:
 	int gains;
-	string nickname;
+	std::string nickname;
 	int idPlayer;
-	string deviner;
+	std::string deviner;
 };
