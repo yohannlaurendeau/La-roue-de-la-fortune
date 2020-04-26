@@ -12,3 +12,6 @@ int Player::getGains()const{
 string Player::getDeviner()const{
 	return deviner;
 }
+Player::setGains(int gains){
+	
+}

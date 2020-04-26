@@ -7,8 +7,15 @@ private:
     std::string effect;        //Le type d'effets aue va produire une case(ajout d'argent,banqueroute, voyage etc....)
 
 public:
+    /*constructor*/
+    Case();
     /* functions */
     std::string getName();
     int getPos();
     std::string getEffect();
 };
+Case::Case(int pos,std::string name,std::string effect){
+    this->pos = pos;
+    this->name = name;
+    this->effect = effect;
+}
