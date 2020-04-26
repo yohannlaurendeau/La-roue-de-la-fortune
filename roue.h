@@ -9,7 +9,7 @@ private:
     std::list<Case> cases; 
 
 public:
-    Case tournerRoue(){};
-    int getNbCases(){};
-    std::list<Case> getCases(){};
+    Case tournerRoue();
+    int getNbCases();
+    std::list<Case> getCases();
 };
