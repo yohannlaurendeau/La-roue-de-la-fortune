@@ -1,25 +1,27 @@
 #ifndef GAME_HPP
 #define GAME_HPP
-#include <stdio.h>
+#include <iostream>
+#include "SDL2/SDL.h"
 
 class Game
 {
 private:
     bool isRunning;
-    __event 
+    SDL_Window *window;
+    SDL_Renderer *renderer;
 
 public:
     Game();
     ~Game();
 
     void handleEvents();
-    void init();
+    void init(const char *title,int posx,int posy,int width,int height,bool fullscreen);
     void update();
     void render();
     void clean();
     void start();
 
-    bool run();
+    bool run(){return isRunning;}
 };
 
 Game::Game(){

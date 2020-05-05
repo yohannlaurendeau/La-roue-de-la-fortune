@@ -1,10 +1,8 @@
 #include "game.h"
 
-int main(int argc, const char * argv[]){
-    
-    while (Game.isRunning)
-    {
-        Handle the players;
+int main(int argc, const char * argv[]){    
+    while (Game::run()){
+        
     }
     
     return 0;
