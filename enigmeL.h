@@ -1,11 +1,21 @@
 class EnigmeL{
     public:
+        EnigmeL(int nbenigme);
         int genererEnigmeL();
-        string getEnigmeL();
+        const char getEnigmeL();
         int getNbTextesL();
+        void makeEnigme(const char * enigmes[]);
+        void changeTexteL();
 
 
     private:
-        std::string enigme;
+        const char * enigme;
+        const char * texteL[];
+        int nbEnigmes;
 
+};
+
+EnigmeL::EnigmeL(int nbEnigme) {
+    this->enigme = "";
+    this->nbEnigmes = 0;
 }

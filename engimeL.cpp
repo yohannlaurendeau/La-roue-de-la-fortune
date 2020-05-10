@@ -1,17 +1,26 @@
 #include "enigmeL.h"
 #include <list>
+#include <vector>
+#include <string>
 
-std::list<string> texteL;
-texteL.insert("La grande roue");
-texteL.insert("J adore le c");
+using namespace std;
+
+
+void EnigmeL::makeEnigme(const char * enigmes[]) {
+    for (int i = 0; i < nbEnigmes; i++) {
+        texteL[i] = enigmes[i];
+    } 
+}
+
 
 int EnigmeL::getNbTextesL(){
     return texteL.size();
 }
 
-int genererEnigmeL(){
+int EnigmeL::genererEnigmeL(){
     return (rand()%getNbTextesL());
 }
-string getEnigmeL(){
+
+const char EnigmeL::getEnigmeL(){
     return texteL[genererEnigmeL()];
 }

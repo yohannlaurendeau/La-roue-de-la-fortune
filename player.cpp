@@ -28,11 +28,11 @@ char * Player::GetNickname() {
 }
 
 
-//std::list<string>consonne ={'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z'};
-//std::list<string>voyelle ={'a','e','i','o','u','y'};
+/* vector<char> consonne = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z'];
+char voyelle[6] = ['a','e','i','o','u','y'];
 
 
-/*string Player::DevinerLettre(){
+string Player::DevinerLettre(){
     int total = consonne.size();
     string lettre = consonne[rand()%total + 1];
     string enigme = getEnigmeL();
@@ -44,5 +44,4 @@ char * Player::GetNickname() {
         enigme.erase(enigme.begin()+found - 1);
         DevinerLettre();
     }
-}
-*/
+} */
