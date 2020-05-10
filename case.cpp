@@ -3,7 +3,9 @@
 #include "player.h"
 
 using namespace std;
- string Case::getName(){
+
+
+ const char * Case::getName(){
      return name;
  }
 
@@ -11,18 +13,6 @@ using namespace std;
      return pos;
  }
 
- string Case::getEffect(){
+ const char * Case::getEffect(){
      return effect;
- }
-
- void Case::appliqueEffet(string effet){
-    if Case.getEffect()=="argent"{
-        Player.addGains(std::stoi(name) )//stoi String to Integer
-    }
-    else if Case.getEffect()=="ruine"{
-        Player.setGain == 0;
-    }
-    else if Case.getEffect()=="passe"{
-        /*Next Player*/
-    }
  }
