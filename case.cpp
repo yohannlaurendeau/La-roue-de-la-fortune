@@ -3,10 +3,6 @@
 #include "player.h"
 
 using namespace std;
-
-Case c1(0,"100","argent");
-Case c2(0,"Banqueroute","ruine");
-
  string Case::getName(){
      return name;
  }
