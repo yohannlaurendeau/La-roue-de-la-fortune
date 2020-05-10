@@ -3,6 +3,12 @@
 
 using namespace std;
 
+Player::Player(char * nickname,int idPlayer){
+		this->idPlayer = idPlayer;
+		this->gains = 0;
+		this->nickname = nickname;
+}
+
 void Player::addGains(int gain){
 	gains += gain;
 }
@@ -12,6 +18,10 @@ int Player::getGains()const{
 string Player::getDeviner()const{
 	return deviner;
 }
-Player::setGains(int gains){
-	
+void Player::setGains(){
+	gains = 0;
+}
+
+char * Player::GetNickname(){
+	return nickname;
 }
