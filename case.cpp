@@ -26,4 +26,7 @@ Case c2(0,"Banqueroute","ruine");
     else if Case.getEffect()=="ruine"{
         Player.setGain == 0;
     }
+    else if Case.getEffect()=="passe"{
+        /*Next Player*/
+    }
  }

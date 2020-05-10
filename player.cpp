@@ -15,8 +15,8 @@ void Player::addGains(int gain){
 int Player::getGains()const{
 	return gains;
 }
-string Player::getDeviner()const{
-	return deviner;
+string Player::getDevinerEnigmeR()const{
+	return 1 +(rand%;
 }
 void Player::setGains(){
 	gains = 0;

@@ -4,12 +4,11 @@ public:
 	int getGains() const;
 	void setGains();
 	void addGains(int gains);
-	std::string getDeviner() const;
+	std::string getDevinerEnigmeR() const;
 	char * GetNickname();
 
 private:
 	int gains;
 	char * nickname;
 	int idPlayer;
-	std::string deviner;
 };

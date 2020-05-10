@@ -24,15 +24,15 @@ unsigned int depth;
 char * nickname;
 int button_cpt;
 
-int main(int argc, const char * argv[]){    
-    
+int main(int argc, const char * argv[]){
+
     display = XOpenDisplay(NULL);
 
     if (display == NULL) {
         fprintf(stderr,"Cannot open the display\n");
         return 1;
     }
-    
+
     screen = DefaultScreen(display);
     button_cpt = 0;
     nickname = new char[20];
@@ -47,11 +47,11 @@ int main(int argc, const char * argv[]){
     XMapWindow(display, window);
 
     /* Second Window */
-    
+
     colormap = DefaultColormap(display, screen);
     XParseColor(display,colormap,"rgb:cc/cc/cc", &button_color);
     XAllocColor(display, colormap, &button_color);
-    
+
     XParseColor(display, colormap, "rgb:ee/ee/ee", &lightgray);
     XAllocColor(display, colormap, &lightgray);
     gcv_lightgray.foreground = lightgray.pixel;
@@ -107,7 +107,7 @@ int main(int argc, const char * argv[]){
                 XDrawLine(display, child_window, gc_lightgray, 0, b_height - 1, b_width-1, b_height - 1);
                 XDrawString(display, child_window, DefaultGC(display,screen), b_width / 4, b_height / 2, "La roue a ete tournee", 21);
             }
-            
+
             break;
         case ButtonRelease:
             if (event.xbutton.button = 1) {
@@ -122,7 +122,7 @@ int main(int argc, const char * argv[]){
         default:
             break;
         }
-        
+
     }
 
     std::cout << "La partie est terminée !" << std::endl;

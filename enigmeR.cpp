@@ -2,15 +2,14 @@
 #include "player.h"
 #include "string"
 #include "iostream"
+#include <list>
 
 using namespace std;
 
 int const nbDeTextes(4);
-string texte[nbDeTextes];
-texte[0] = "Pas De Bol";
-texte[1] = "Soyez pas naif";
-texte[2] = "Bonne chance";
-texte[3] = "20/20 s'il vous plait";
+std::list<string> texte;
+texte.insert("Pas de Bol");
+texte.insert("C'est zero en c");
 
 void EnigmeR::devinette(texte){
     if(Player.getDeviner == texte){
@@ -20,5 +19,12 @@ void EnigmeR::devinette(texte){
         {
             return false;
         }
-        
+
+}
+int EnigmeR::getNbTextes(){
+    return texte.size();
+}
+
+void EnigmeR::getEnigme(){
+    return 1 + (rand()%getNbTextes());
 }
