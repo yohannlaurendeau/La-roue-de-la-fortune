@@ -15,10 +15,12 @@ int EnigmeR::getNbTextes(){
     return texte.size();
 }
 
-void EnigmeR::getEnigme(){
+int EnigmeR::genererEnigme(){
+    return (rand()%getNbTextes());
+}
+
+string EnigmeR::getEnigme(){
     return texte[genererEnigme()];// ON declare l'enigmeR avec cette methode pour generer une phrase aleatoire
 }
 
-void EnigmeR::genererEnigme(){
-    return (rand()%getNbTextes());
-}
+

@@ -1,7 +1,8 @@
 class EnigmeL{
     public:
-        void genererEnigmeL();
-        void getEnigmeL();
+        int genererEnigmeL();
+        string getEnigmeL();
+        int getNbTextesL();
 
 
     private:

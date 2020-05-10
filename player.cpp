@@ -27,14 +27,22 @@ char * Player::GetNickname() {
 	return nickname;
 }
 
-//std::list<string>consonne =('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Z');
+
+//std::list<string>consonne ={'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z'};
+//std::list<string>voyelle ={'a','e','i','o','u','y'};
 
 
-/*void Player::DevinerLettre(){
-    random consonne
+/*string Player::DevinerLettre(){
+    int total = consonne.size();
+    string lettre = consonne[rand()%total + 1];
+    string enigme = getEnigmeL();
+    char dejaDeviner[enigme.size()];
 
-    if player.get gain = 200
-        voyelle.random
-
+    size_t found = enigme.find(lettre);
+    if (found != string::npos){
+        dejaDeviner[found] = lettre;
+        enigme.erase(enigme.begin()+found - 1);
+        DevinerLettre();
+    }
 }
 */

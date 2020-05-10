@@ -11,6 +11,7 @@ Window window;
 int screen;
 XEvent event;
 Window child_window;
+Window child_window2;
 
 int b_x, b_y;
 unsigned int b_width, b_height;
@@ -37,9 +38,12 @@ int main(int argc, const char * argv[]){
     screen = DefaultScreen(display);
     button_cpt = 0;
     nickname = new char[20];
-    std::cout << "Entrez votre pseudo svp : ";
+    std::cout << "Entrez votre pseudo du Joueur 1 svp : ";
     std::cin >> nickname;
     Player player(nickname,1);
+    std::cout << "Entrez votre pseudo du Joueur 2 svp : ";
+    std::cin >> nickname2;
+    Player player2(nickname2,2);
     Roue wheel(3);
     Case setcases[5];
     setcases[0].setValues("Banqueroute","set gains");
@@ -76,6 +80,7 @@ int main(int argc, const char * argv[]){
     gc_darkgray = XCreateGC(display, RootWindow(display, screen), GCForeground | GCBackground, &gcv_darkgray);
 
     child_window = XCreateSimpleWindow(display, window, 20, 20, 200, 100, 1, BlackPixel(display, screen), button_color.pixel);
+    child_window2 = XCreateSimpleWindow(display, window, 60, 20, 200, 100, 1, BlackPixel(display, screen), button_color.pixel);
 
     XSelectInput(display, child_window, ExposureMask | KeyPressMask | ButtonPressMask | ButtonReleaseMask);
     XMapWindow(display, child_window);
@@ -97,6 +102,24 @@ int main(int argc, const char * argv[]){
             XDrawLine(display, child_window, gc_darkgray, b_width - 1, 0, b_width-1, b_height - 1);
             XDrawLine(display, child_window, gc_darkgray, 0, b_height - 1, b_width-1, b_height - 1);
             XDrawString(display, child_window, DefaultGC(display,screen), b_width / 4, b_height / 2, "Tourner la roue", 15);
+            XDrawLine(display, child_window, gc_lightgray, 0, 0, b_width - 1, 0);
+            XDrawLine(display, child_window, gc_lightgray, 0, 0, 0, b_height - 1);
+            XDrawLine(display, child_window, gc_darkgray, b_width - 1, 0, b_width-1, b_height - 1);
+            XDrawLine(display, child_window, gc_darkgray, 0, b_height - 1, b_width-1, b_height - 1);
+            XDrawString(display, child_window, DefaultGC(display,screen), b_width / 4, b_height / 2, "Tourner la roue", 15);
+
+
+            XClearWindow(display,child_window2);
+            XDrawLine(display, child_window2, gc_lightgray, 0, 0, b_width - 1, 0);
+            XDrawLine(display, child_window2, gc_lightgray, 0, 0, 0, b_height - 1);
+            XDrawLine(display, child_window2, gc_darkgray, b_width - 1, 0, b_width-1, b_height - 1);
+            XDrawLine(display, child_window2, gc_darkgray, 0, b_height - 1, b_width-1, b_height - 1);
+            XDrawString(display, child_window2, DefaultGC(display,screen), b_width / 4, b_height / 2, "Tourner la roue", 15);
+            XDrawLine(display, child_window2, gc_lightgray, 0, 0, b_width - 1, 0);
+            XDrawLine(display, child_window2, gc_lightgray, 0, 0, 0, b_height - 1);
+            XDrawLine(display, child_window2, gc_darkgray, b_width - 1, 0, b_width-1, b_height - 1);
+            XDrawLine(display, child_window2, gc_darkgray, 0, b_height - 1, b_width-1, b_height - 1);
+            XDrawString(display, child_window2, DefaultGC(display,screen), b_width / 4, b_height / 2, "Tourner la roue", 15);
             break;
         case ButtonPress:
             if (event.xbutton.button = 1) {
@@ -104,9 +127,8 @@ int main(int argc, const char * argv[]){
                 const char * caseRolled = wheel.tournerRoue();
                 if (caseRolled == "Banqueroute") {
                     player.setGains();
+                    player2.setGains();
                     fprintf(stdout, "Quel dommage ! Vous etes tombé sur la case %s ! \n  Vous perdez tout vos gains !\n", caseRolled);
-                }else if (caseRolled == "passe") {
-                    /* code pour passer le tour du joueur */
                 }else{
                     player.addGains(std::atoi(caseRolled));
                 }
@@ -116,6 +138,14 @@ int main(int argc, const char * argv[]){
                 XDrawLine(display, child_window, gc_lightgray, b_width - 1, 0, b_width-1, b_height - 1);
                 XDrawLine(display, child_window, gc_lightgray, 0, b_height - 1, b_width-1, b_height - 1);
                 XDrawString(display, child_window, DefaultGC(display,screen), b_width / 4, b_height / 2, "La roue a ete tournee", 21);
+
+
+                XClearWindow(display,child_window2);
+                XDrawLine(display, child_window2, gc_darkgray, 0, 0, b_width - 1, 0);
+                XDrawLine(display, child_window2, gc_darkgray, 0, 0, 0, b_height - 1);
+                XDrawLine(display, child_window2, gc_lightgray, b_width - 1, 0, b_width-1, b_height - 1);
+                XDrawLine(display, child_window2, gc_lightgray, 0, b_height - 1, b_width-1, b_height - 1);
+                XDrawString(display, child_window2, DefaultGC(display,screen), b_width / 4, b_height / 2, "La roue a ete tournee", 21);
             }
 
             break;
@@ -127,6 +157,13 @@ int main(int argc, const char * argv[]){
                 XDrawLine(display, child_window, gc_darkgray, b_width - 1, 0, b_width-1, b_height - 1);
                 XDrawLine(display, child_window, gc_darkgray, 0, b_height - 1, b_width-1, b_height - 1);
                 XDrawString(display, child_window, DefaultGC(display,screen), b_width / 4, b_height / 2, "Tourner la roue", 15);
+
+                XClearWindow(display,child_window2);
+                XDrawLine(display, child_window2, gc_lightgray, 0, 0, b_width - 1, 0);
+                XDrawLine(display, child_window2, gc_lightgray, 0, 0, 0, b_height - 1);
+                XDrawLine(display, child_window2, gc_darkgray, b_width - 1, 0, b_width-1, b_height - 1);
+                XDrawLine(display, child_window2, gc_darkgray, 0, b_height - 1, b_width-1, b_height - 1);
+                XDrawString(display, child_window2, DefaultGC(display,screen), b_width / 4, b_height / 2, "Tourner la roue", 15);
             }
             break;
         default:
@@ -136,7 +173,9 @@ int main(int argc, const char * argv[]){
     }
 
     std::cout << "La partie est terminée !" << std::endl;
-    fprintf(stdout,"Vous avez accumulé %d crédits, bravo !\n",player.getGains());
+    fprintf(stdout,"%s a accumulé %d crédits, bravo !\n",player.GetNickname(),player.getGains());
+    fprintf(stdout,"%s a accumulé %d crédits, bravo !\n",player2.GetNickname(),player2.getGains());
+
 
     return 0;
 }
