@@ -9,10 +9,6 @@ using namespace std;
      return name;
  }
 
- int Case::getPos(){
-     return pos;
- }
-
  const char * Case::getEffect(){
      return effect;
  }

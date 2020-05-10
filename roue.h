@@ -5,18 +5,17 @@ class Roue
 {
 private:
     /* data */
-    int nbCases;        // Pas sur de l utiliser
-    std::list<Case> listCases;
+    int nbCases;        
+    Case listCases[12];
 
 public:
-    Roue();
-    int tournerRoue();
+    Roue(int nbcases);
+    const char * tournerRoue();
     int getNbCases();
-    std::list<Case> getCases();
-    void setCases();
+    Case* getCases();
+    void setCases(Case listCases[]);
 };
 
-Roue::Roue(){
-    this->listCases = new list<Case>();
-    this->nbCases = 0;
+Roue::Roue(int nbcases){
+    nbCases = nbcases;
 }

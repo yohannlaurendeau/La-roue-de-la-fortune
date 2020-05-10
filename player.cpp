@@ -15,9 +15,9 @@ void Player::addGains(int gain){
 int Player::getGains()const{
 	return gains;
 }
-void Player::getDevinerEnigmeR()const{
+/* void Player::getDevinerEnigmeR()const{
 	return
-}
+} */
 
 void Player::setGains(){
 	gains = 0;
@@ -27,11 +27,14 @@ char * Player::GetNickname(){
 	return nickname;
 }
 
-std::list<string>consonne =('b','C','D','F','G','H','J','K','L','M','N'PQRSTVWXZ')
-void Player::DevinerLettre(){
+//std::list<string>consonne =('B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Z');
+
+
+/*void Player::DevinerLettre(){
     random consonne
 
     if player.get gain = 200
         voyelle.random
 
 }
+*/

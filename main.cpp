@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include "player.h"
+#include "roue.h"
 
 /* déclaration des variables */
 
@@ -39,6 +40,9 @@ int main(int argc, const char * argv[]){
     std::cout << "Entrez votre pseudo svp : ";
     std::cin >> nickname;
     Player player(nickname,1);
+    Roue wheel(3);
+    Case setcases[3];
+    wheel.setCases(setcases);
 
     /* Main Window */
 
@@ -92,14 +96,14 @@ int main(int argc, const char * argv[]){
         case ButtonPress:
             if (event.xbutton.button = 1) {
                 button_cpt++;
-                int random = rand()%1001;
-                if (random == 1)
-                {
-                    fprintf(stdout,"Bravo %s vous avez gagné : %d credit !\n",player.GetNickname(), random);
+                const char * caseRolled = wheel.tournerRoue();
+                if (caseRolled == "Banqueroute") {
+                    player.setGains();
+                }else if (caseRolled == "passe") {
+                    /* code pour passer le tour du joueur */
                 }else{
-                    fprintf(stdout,"Bravo %s vous avez gagné : %d credits !\n",player.GetNickname(), random);
+                    player.addGains(std::atoi(caseRolled));
                 }
-                player.addGains(random);
                 XClearWindow(display,child_window);
                 XDrawLine(display, child_window, gc_darkgray, 0, 0, b_width - 1, 0);
                 XDrawLine(display, child_window, gc_darkgray, 0, 0, 0, b_height - 1);
