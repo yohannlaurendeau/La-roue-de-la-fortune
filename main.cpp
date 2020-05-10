@@ -41,7 +41,12 @@ int main(int argc, const char * argv[]){
     std::cin >> nickname;
     Player player(nickname,1);
     Roue wheel(3);
-    Case setcases[3];
+    Case setcases[5];
+    setcases[0].setValues("Banqueroute","set gains");
+    setcases[1].setValues("Passe","passe tour");
+    setcases[2].setValues("1000","raise gains");
+    setcases[3].setValues("10","raise gains");
+    setcases[4].setValues("100","raise gains");
     wheel.setCases(setcases);
 
     /* Main Window */
@@ -99,6 +104,7 @@ int main(int argc, const char * argv[]){
                 const char * caseRolled = wheel.tournerRoue();
                 if (caseRolled == "Banqueroute") {
                     player.setGains();
+                    fprintf(stdout, "Quel dommage ! Vous etes tombé sur la case %s ! \n  Vous perdez tout vos gains !\n", caseRolled);
                 }else if (caseRolled == "passe") {
                     /* code pour passer le tour du joueur */
                 }else{

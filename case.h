@@ -1,5 +1,4 @@
-class Case
-{
+class Case {
 private:
     /* data */
     const char * name;
@@ -7,20 +6,11 @@ private:
 
 public:
     /*constructor*/
+
     Case();
-    Case(const char * name, const char * effect);
+
     /* functions */
     const char * getName();
     const char * getEffect();
+    void setValues(const char * effect, const char * name);
 };
-
-
-Case::Case(const char * name, const char * effect){
-    this->name = name;
-    this->effect = effect;
-}
-
-Case::Case(){
-    this->effect = "";
-    this->name = "";
-}

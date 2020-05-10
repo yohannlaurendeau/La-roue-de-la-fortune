@@ -5,10 +5,20 @@
 using namespace std;
 
 
- const char * Case::getName(){
-     return name;
- }
+Case::Case() {
+    this->effect = "";
+    this->name = "";
+}
 
- const char * Case::getEffect(){
+const char * Case::getName(){
+     return name;
+}
+
+const char * Case::getEffect(){
      return effect;
- }
+}
+
+void Case::setValues(const char * name, const char * effect) {
+    this->effect = effect;
+    this->name = name;
+}

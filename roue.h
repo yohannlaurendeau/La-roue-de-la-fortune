@@ -1,8 +1,8 @@
 #include "case.h"
 #include "list"
 
-class Roue
-{
+class Roue {
+
 private:
     /* data */
     int nbCases;        
@@ -15,7 +15,3 @@ public:
     Case* getCases();
     void setCases(Case listCases[]);
 };
-
-Roue::Roue(int nbcases){
-    nbCases = nbcases;
-}
